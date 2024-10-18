@@ -1,0 +1,267 @@
+/* Hide scrollbar for all elements */
+* {
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none;  /* For Internet Explorer and Edge */
+  }
+  
+  *::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
+  }
+  
+html {
+    scroll-behavior: smooth;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.forgot_pass{
+    text-decoration: none; 
+    cursor: pointer;
+}
+.btn{
+    cursor: pointer;
+}
+body {
+    background-image: url('bg.jpg'); /* Start with the first image */
+    background-color: hsl(0, 0%, 37%);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    animation: zoomAnimation 10s ease-in-out infinite, imageTransition 10s infinite; /* Animation */
+}
+
+/* Zooming animation */
+@keyframes zoomAnimation {
+    0% { background-size: 100%; }
+    50% { background-size: 110%; }
+    100% { background-size: 100%; }
+}
+
+/* Transition between two images */
+@keyframes imageTransition {
+    0%, 50% {
+        background-image: url('bg.jpg'); /* First image */
+    }
+    51%, 100% {
+        background-image: url('bg1.jpg'); /* Second image */
+    }
+}
+
+.logo {
+    background-image: url(logo.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 48px;
+    width: 48px;
+    border: solid black 1px;
+    left: 0px;    
+    top: 0px;
+    position: absolute;
+    z-index: 100;
+    animation: slideDown 0.5s ease forwards;
+}
+#header{
+    box-shadow: 0px 0px 15px hsl(0, 0%, 0%);
+    background-color: hsl(120, 59%, 23%);
+    width: 100vw;
+    height: 30px;
+    padding: 10px;
+    animation: slideDown 0.5s ease forwards;
+}   
+header h1 {
+    color: hsl(0, 0%, 100%);
+    font-size: 3.5vw;
+    text-align: center;
+}
+
+.parent {
+    display: grid;
+    place-items: center; /* Centers the child both horizontally and vertically */
+    height: 100vh; /* Ensures the parent takes up the full viewport height */
+  }
+.container {
+    background: rgba(22, 21, 21, 0.747); 
+    width: 80%;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); 
+    color: hsl(0, 0%, 100%);
+    padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+    animation: popupIn 0.4s ease forwards;
+}
+
+
+.container h1 {
+    margin-top: 5%;
+    font-size: 1.3rem;
+}.container p {
+    font-size: .8rem;
+}
+.container button {
+    padding: 5px;
+    font-weight: bold;
+    box-shadow: 0px 0px 3px black;
+}
+
+
+
+/* When the/* MEDIA QUERIES */
+@media (min-width: 768px) {
+.logo {
+
+    height:78px;
+    width: 78px;
+}
+#header{
+ 
+    height: 61px;
+} 
+}   
+#popup.popup-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Popup content box */
+.popup-content {
+    background: rgba(255, 255, 255, 0.9);
+    color: black;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    width: 60%; 
+    margin-right: 20%;
+    margin-left: 20%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    transform: scale(0.8); 
+}
+
+
+
+
+/* MEDIA QUERIES */
+@media (min-width: 768px) {
+    .logo {
+    
+        height:78px;
+        width: 78px;
+    }
+    #header{
+     
+        height: 61px;
+    } 
+    }
+    
+    @media (min-width: 1024px) {
+        .logo {
+        
+            height:120px;
+            width: 120px;
+        }
+        #header{
+            height: 105px;
+        } 
+        header h1 {
+            font-size: 2.5rem;
+        }
+        .container {
+            width: 60%;
+            top: 150px;
+        }
+        .container h1 {
+            font-size: 1.5rem;
+
+        }
+        body{
+            height: 100vh;
+            overflow-y: hidden; /* Disable vertical scroll */
+            overflow-x: hidden; 
+        }
+    }
+    
+/* ANIMATIONS */
+
+@keyframes popupIn {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+      @keyframes slideDown {
+        0% {
+          transform: translateY(-100%);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+    
+      /* Style for the modal (hidden by default) */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    padding-top: 60px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.9); 
+  }
+  
+  /* Full-screen image */
+  .modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+  }
+  
+  /* Caption for the image */
+  #caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+  }
+  
+  /* Close button (top right corner) */
+  .close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /* Responsive for smaller screens */
+  @media only screen and (max-width: 700px) {
+    .modal-content {
+      width: 100%;
+    }
+  }
+  

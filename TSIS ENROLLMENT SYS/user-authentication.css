@@ -1,0 +1,40 @@
+
+
+@keyframes popupIn {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+
+#admin {
+    background-image: url(administrator.png);
+    margin-bottom: 20px;
+
+}
+
+.flexbox {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+}
+.choice {
+    background-color: white;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 200px;
+    width: 40%;
+    border-radius: 10px;
+    padding: 20px;
+    cursor: pointer;
+    margin: 5px;
+    animation: popupIn 0.4s ease forwards;
+}
